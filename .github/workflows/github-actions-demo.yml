@@ -5,6 +5,7 @@ on:
     types: [opened, edited, reopened]
     branches:
       -main
+      -testing-actions
 
 jobs:
   build-gradle-project:
