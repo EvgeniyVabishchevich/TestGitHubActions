@@ -3,7 +3,7 @@ name: Tests runner on pull request
 on:
   pull_request:
     types: [opened, edited, reopened]
-    branches: [main, testing-actions]
+    branches: [main]
 
 jobs:
   build-gradle-project:
