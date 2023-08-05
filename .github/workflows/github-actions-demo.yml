@@ -1,11 +1,10 @@
 name: Tests runner on pull request
 
 on:
-#  pull_request:
-#    types: [ opened, edited ]
-#    branches:
-#      -main
-  push
+  pull_request:
+    types: [ opened, edited ]
+    branches:
+      -main
 
 jobs:
   build-gradle-project:
@@ -18,13 +17,13 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
-          distribution: 'adopt'
-
-      - name: Grant Permissions to gradlew
-        run: chmod +x gradlew
+          distribution: 'coretto'
 
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
+
+      - name: Grant Permissions to gradlew
+        run: chmod +x gradlew
 
       - name: Tests
         run: ./gradlew test --tests "*"
